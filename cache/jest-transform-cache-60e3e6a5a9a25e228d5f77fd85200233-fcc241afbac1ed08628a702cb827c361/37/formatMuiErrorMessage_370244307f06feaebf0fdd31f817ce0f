@@ -1,0 +1,27 @@
+c359eb536f6eb0b271086bab14893fae
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = formatMuiErrorMessage;
+/**
+ * WARNING: Don't import this directly.
+ * Use `MuiError` from `@mui/utils/macros/MuiError.macro` instead.
+ * @param {number} code
+ */
+function formatMuiErrorMessage(code) {
+  // Apply babel-plugin-transform-template-literals in loose mode
+  // loose mode is safe iff we're concatenating primitives
+  // see https://babeljs.io/docs/en/babel-plugin-transform-template-literals#loose
+  /* eslint-disable prefer-template */
+  let url = 'https://mui.com/production-error/?code=' + code;
+  for (let i = 1; i < arguments.length; i += 1) {
+    // rest params over-transpile for this case
+    // eslint-disable-next-line prefer-rest-params
+    url += '&args[]=' + encodeURIComponent(arguments[i]);
+  }
+  return 'Minified MUI error #' + code + '; visit ' + url + ' for the full message.';
+  /* eslint-enable prefer-template */
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJPYmplY3QiLCJkZWZpbmVQcm9wZXJ0eSIsImV4cG9ydHMiLCJ2YWx1ZSIsImRlZmF1bHQiLCJmb3JtYXRNdWlFcnJvck1lc3NhZ2UiLCJjb2RlIiwidXJsIiwiaSIsImFyZ3VtZW50cyIsImxlbmd0aCIsImVuY29kZVVSSUNvbXBvbmVudCJdLCJzb3VyY2VzIjpbImZvcm1hdE11aUVycm9yTWVzc2FnZS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcblxuT2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFwiX19lc01vZHVsZVwiLCB7XG4gIHZhbHVlOiB0cnVlXG59KTtcbmV4cG9ydHMuZGVmYXVsdCA9IGZvcm1hdE11aUVycm9yTWVzc2FnZTtcbi8qKlxuICogV0FSTklORzogRG9uJ3QgaW1wb3J0IHRoaXMgZGlyZWN0bHkuXG4gKiBVc2UgYE11aUVycm9yYCBmcm9tIGBAbXVpL3V0aWxzL21hY3Jvcy9NdWlFcnJvci5tYWNyb2AgaW5zdGVhZC5cbiAqIEBwYXJhbSB7bnVtYmVyfSBjb2RlXG4gKi9cbmZ1bmN0aW9uIGZvcm1hdE11aUVycm9yTWVzc2FnZShjb2RlKSB7XG4gIC8vIEFwcGx5IGJhYmVsLXBsdWdpbi10cmFuc2Zvcm0tdGVtcGxhdGUtbGl0ZXJhbHMgaW4gbG9vc2UgbW9kZVxuICAvLyBsb29zZSBtb2RlIGlzIHNhZmUgaWZmIHdlJ3JlIGNvbmNhdGVuYXRpbmcgcHJpbWl0aXZlc1xuICAvLyBzZWUgaHR0cHM6Ly9iYWJlbGpzLmlvL2RvY3MvZW4vYmFiZWwtcGx1Z2luLXRyYW5zZm9ybS10ZW1wbGF0ZS1saXRlcmFscyNsb29zZVxuICAvKiBlc2xpbnQtZGlzYWJsZSBwcmVmZXItdGVtcGxhdGUgKi9cbiAgbGV0IHVybCA9ICdodHRwczovL211aS5jb20vcHJvZHVjdGlvbi1lcnJvci8/Y29kZT0nICsgY29kZTtcbiAgZm9yIChsZXQgaSA9IDE7IGkgPCBhcmd1bWVudHMubGVuZ3RoOyBpICs9IDEpIHtcbiAgICAvLyByZXN0IHBhcmFtcyBvdmVyLXRyYW5zcGlsZSBmb3IgdGhpcyBjYXNlXG4gICAgLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIHByZWZlci1yZXN0LXBhcmFtc1xuICAgIHVybCArPSAnJmFyZ3NbXT0nICsgZW5jb2RlVVJJQ29tcG9uZW50KGFyZ3VtZW50c1tpXSk7XG4gIH1cbiAgcmV0dXJuICdNaW5pZmllZCBNVUkgZXJyb3IgIycgKyBjb2RlICsgJzsgdmlzaXQgJyArIHVybCArICcgZm9yIHRoZSBmdWxsIG1lc3NhZ2UuJztcbiAgLyogZXNsaW50LWVuYWJsZSBwcmVmZXItdGVtcGxhdGUgKi9cbn0iXSwibWFwcGluZ3MiOiJBQUFBLFlBQVk7O0FBRVpBLE1BQU0sQ0FBQ0MsY0FBYyxDQUFDQyxPQUFPLEVBQUUsWUFBWSxFQUFFO0VBQzNDQyxLQUFLLEVBQUU7QUFDVCxDQUFDLENBQUM7QUFDRkQsT0FBTyxDQUFDRSxPQUFPLEdBQUdDLHFCQUFxQjtBQUN2QztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsU0FBU0EscUJBQXFCQSxDQUFDQyxJQUFJLEVBQUU7RUFDbkM7RUFDQTtFQUNBO0VBQ0E7RUFDQSxJQUFJQyxHQUFHLEdBQUcseUNBQXlDLEdBQUdELElBQUk7RUFDMUQsS0FBSyxJQUFJRSxDQUFDLEdBQUcsQ0FBQyxFQUFFQSxDQUFDLEdBQUdDLFNBQVMsQ0FBQ0MsTUFBTSxFQUFFRixDQUFDLElBQUksQ0FBQyxFQUFFO0lBQzVDO0lBQ0E7SUFDQUQsR0FBRyxJQUFJLFVBQVUsR0FBR0ksa0JBQWtCLENBQUNGLFNBQVMsQ0FBQ0QsQ0FBQyxDQUFDLENBQUM7RUFDdEQ7RUFDQSxPQUFPLHNCQUFzQixHQUFHRixJQUFJLEdBQUcsVUFBVSxHQUFHQyxHQUFHLEdBQUcsd0JBQXdCO0VBQ2xGO0FBQ0YifQ==

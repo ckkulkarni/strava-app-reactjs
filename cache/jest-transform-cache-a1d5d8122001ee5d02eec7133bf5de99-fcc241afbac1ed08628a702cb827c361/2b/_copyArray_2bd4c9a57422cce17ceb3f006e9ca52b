@@ -1,0 +1,22 @@
+a49938c9f9fe0a3159afb747b4dfca44
+"use strict";
+
+/**
+ * Copies the values of `source` to `array`.
+ *
+ * @private
+ * @param {Array} source The array to copy values from.
+ * @param {Array} [array=[]] The array to copy values to.
+ * @returns {Array} Returns `array`.
+ */
+function copyArray(source, array) {
+  var index = -1,
+    length = source.length;
+  array || (array = Array(length));
+  while (++index < length) {
+    array[index] = source[index];
+  }
+  return array;
+}
+module.exports = copyArray;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3B5QXJyYXkiLCJzb3VyY2UiLCJhcnJheSIsImluZGV4IiwibGVuZ3RoIiwiQXJyYXkiLCJtb2R1bGUiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsiX2NvcHlBcnJheS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIENvcGllcyB0aGUgdmFsdWVzIG9mIGBzb3VyY2VgIHRvIGBhcnJheWAuXG4gKlxuICogQHByaXZhdGVcbiAqIEBwYXJhbSB7QXJyYXl9IHNvdXJjZSBUaGUgYXJyYXkgdG8gY29weSB2YWx1ZXMgZnJvbS5cbiAqIEBwYXJhbSB7QXJyYXl9IFthcnJheT1bXV0gVGhlIGFycmF5IHRvIGNvcHkgdmFsdWVzIHRvLlxuICogQHJldHVybnMge0FycmF5fSBSZXR1cm5zIGBhcnJheWAuXG4gKi9cbmZ1bmN0aW9uIGNvcHlBcnJheShzb3VyY2UsIGFycmF5KSB7XG4gIHZhciBpbmRleCA9IC0xLFxuICAgICAgbGVuZ3RoID0gc291cmNlLmxlbmd0aDtcblxuICBhcnJheSB8fCAoYXJyYXkgPSBBcnJheShsZW5ndGgpKTtcbiAgd2hpbGUgKCsraW5kZXggPCBsZW5ndGgpIHtcbiAgICBhcnJheVtpbmRleF0gPSBzb3VyY2VbaW5kZXhdO1xuICB9XG4gIHJldHVybiBhcnJheTtcbn1cblxubW9kdWxlLmV4cG9ydHMgPSBjb3B5QXJyYXk7XG4iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQVNBLFNBQVNBLENBQUNDLE1BQU0sRUFBRUMsS0FBSyxFQUFFO0VBQ2hDLElBQUlDLEtBQUssR0FBRyxDQUFDLENBQUM7SUFDVkMsTUFBTSxHQUFHSCxNQUFNLENBQUNHLE1BQU07RUFFMUJGLEtBQUssS0FBS0EsS0FBSyxHQUFHRyxLQUFLLENBQUNELE1BQU0sQ0FBQyxDQUFDO0VBQ2hDLE9BQU8sRUFBRUQsS0FBSyxHQUFHQyxNQUFNLEVBQUU7SUFDdkJGLEtBQUssQ0FBQ0MsS0FBSyxDQUFDLEdBQUdGLE1BQU0sQ0FBQ0UsS0FBSyxDQUFDO0VBQzlCO0VBQ0EsT0FBT0QsS0FBSztBQUNkO0FBRUFJLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHUCxTQUFTIn0=

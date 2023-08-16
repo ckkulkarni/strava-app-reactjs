@@ -1,0 +1,30 @@
+e49c37844bccd92b5e0c61679e6d1951
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createGetCssVar;
+/**
+ * The benefit of this function is to help developers get CSS var from theme without specifying the whole variable
+ * and they does not need to remember the prefix (defined once).
+ */
+function createGetCssVar(prefix = '') {
+  function appendVar(...vars) {
+    if (!vars.length) {
+      return '';
+    }
+    const value = vars[0];
+    if (typeof value === 'string' && !value.match(/(#|\(|\)|(-?(\d*\.)?\d+)(px|em|%|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc))|^(-?(\d*\.)?\d+)$|(\d+ \d+ \d+)/)) {
+      return `, var(--${prefix ? `${prefix}-` : ''}${value}${appendVar(...vars.slice(1))})`;
+    }
+    return `, ${value}`;
+  }
+
+  // AdditionalVars makes `getCssVar` less strict, so it can be use like this `getCssVar('non-mui-variable')` without type error.
+  const getCssVar = (field, ...fallbacks) => {
+    return `var(--${prefix ? `${prefix}-` : ''}${field}${appendVar(...fallbacks)})`;
+  };
+  return getCssVar;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJPYmplY3QiLCJkZWZpbmVQcm9wZXJ0eSIsImV4cG9ydHMiLCJ2YWx1ZSIsImRlZmF1bHQiLCJjcmVhdGVHZXRDc3NWYXIiLCJwcmVmaXgiLCJhcHBlbmRWYXIiLCJ2YXJzIiwibGVuZ3RoIiwibWF0Y2giLCJzbGljZSIsImdldENzc1ZhciIsImZpZWxkIiwiZmFsbGJhY2tzIl0sInNvdXJjZXMiOlsiY3JlYXRlR2V0Q3NzVmFyLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xuXG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHtcbiAgdmFsdWU6IHRydWVcbn0pO1xuZXhwb3J0cy5kZWZhdWx0ID0gY3JlYXRlR2V0Q3NzVmFyO1xuLyoqXG4gKiBUaGUgYmVuZWZpdCBvZiB0aGlzIGZ1bmN0aW9uIGlzIHRvIGhlbHAgZGV2ZWxvcGVycyBnZXQgQ1NTIHZhciBmcm9tIHRoZW1lIHdpdGhvdXQgc3BlY2lmeWluZyB0aGUgd2hvbGUgdmFyaWFibGVcbiAqIGFuZCB0aGV5IGRvZXMgbm90IG5lZWQgdG8gcmVtZW1iZXIgdGhlIHByZWZpeCAoZGVmaW5lZCBvbmNlKS5cbiAqL1xuZnVuY3Rpb24gY3JlYXRlR2V0Q3NzVmFyKHByZWZpeCA9ICcnKSB7XG4gIGZ1bmN0aW9uIGFwcGVuZFZhciguLi52YXJzKSB7XG4gICAgaWYgKCF2YXJzLmxlbmd0aCkge1xuICAgICAgcmV0dXJuICcnO1xuICAgIH1cbiAgICBjb25zdCB2YWx1ZSA9IHZhcnNbMF07XG4gICAgaWYgKHR5cGVvZiB2YWx1ZSA9PT0gJ3N0cmluZycgJiYgIXZhbHVlLm1hdGNoKC8oI3xcXCh8XFwpfCgtPyhcXGQqXFwuKT9cXGQrKShweHxlbXwlfGV4fGNofHJlbXx2d3x2aHx2bWlufHZtYXh8Y218bW18aW58cHR8cGMpKXxeKC0/KFxcZCpcXC4pP1xcZCspJHwoXFxkKyBcXGQrIFxcZCspLykpIHtcbiAgICAgIHJldHVybiBgLCB2YXIoLS0ke3ByZWZpeCA/IGAke3ByZWZpeH0tYCA6ICcnfSR7dmFsdWV9JHthcHBlbmRWYXIoLi4udmFycy5zbGljZSgxKSl9KWA7XG4gICAgfVxuICAgIHJldHVybiBgLCAke3ZhbHVlfWA7XG4gIH1cblxuICAvLyBBZGRpdGlvbmFsVmFycyBtYWtlcyBgZ2V0Q3NzVmFyYCBsZXNzIHN0cmljdCwgc28gaXQgY2FuIGJlIHVzZSBsaWtlIHRoaXMgYGdldENzc1Zhcignbm9uLW11aS12YXJpYWJsZScpYCB3aXRob3V0IHR5cGUgZXJyb3IuXG4gIGNvbnN0IGdldENzc1ZhciA9IChmaWVsZCwgLi4uZmFsbGJhY2tzKSA9PiB7XG4gICAgcmV0dXJuIGB2YXIoLS0ke3ByZWZpeCA/IGAke3ByZWZpeH0tYCA6ICcnfSR7ZmllbGR9JHthcHBlbmRWYXIoLi4uZmFsbGJhY2tzKX0pYDtcbiAgfTtcbiAgcmV0dXJuIGdldENzc1Zhcjtcbn0iXSwibWFwcGluZ3MiOiJBQUFBLFlBQVk7O0FBRVpBLE1BQU0sQ0FBQ0MsY0FBYyxDQUFDQyxPQUFPLEVBQUUsWUFBWSxFQUFFO0VBQzNDQyxLQUFLLEVBQUU7QUFDVCxDQUFDLENBQUM7QUFDRkQsT0FBTyxDQUFDRSxPQUFPLEdBQUdDLGVBQWU7QUFDakM7QUFDQTtBQUNBO0FBQ0E7QUFDQSxTQUFTQSxlQUFlQSxDQUFDQyxNQUFNLEdBQUcsRUFBRSxFQUFFO0VBQ3BDLFNBQVNDLFNBQVNBLENBQUMsR0FBR0MsSUFBSSxFQUFFO0lBQzFCLElBQUksQ0FBQ0EsSUFBSSxDQUFDQyxNQUFNLEVBQUU7TUFDaEIsT0FBTyxFQUFFO0lBQ1g7SUFDQSxNQUFNTixLQUFLLEdBQUdLLElBQUksQ0FBQyxDQUFDLENBQUM7SUFDckIsSUFBSSxPQUFPTCxLQUFLLEtBQUssUUFBUSxJQUFJLENBQUNBLEtBQUssQ0FBQ08sS0FBSyxDQUFDLDZHQUE2RyxDQUFDLEVBQUU7TUFDNUosT0FBUSxXQUFVSixNQUFNLEdBQUksR0FBRUEsTUFBTyxHQUFFLEdBQUcsRUFBRyxHQUFFSCxLQUFNLEdBQUVJLFNBQVMsQ0FBQyxHQUFHQyxJQUFJLENBQUNHLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBRSxHQUFFO0lBQ3ZGO0lBQ0EsT0FBUSxLQUFJUixLQUFNLEVBQUM7RUFDckI7O0VBRUE7RUFDQSxNQUFNUyxTQUFTLEdBQUdBLENBQUNDLEtBQUssRUFBRSxHQUFHQyxTQUFTLEtBQUs7SUFDekMsT0FBUSxTQUFRUixNQUFNLEdBQUksR0FBRUEsTUFBTyxHQUFFLEdBQUcsRUFBRyxHQUFFTyxLQUFNLEdBQUVOLFNBQVMsQ0FBQyxHQUFHTyxTQUFTLENBQUUsR0FBRTtFQUNqRixDQUFDO0VBQ0QsT0FBT0YsU0FBUztBQUNsQiJ9

@@ -1,0 +1,10 @@
+5828ffa8ff38ce884257e9add046a04f
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VERSION = void 0;
+const VERSION = "1.4.0";
+exports.VERSION = VERSION;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJWRVJTSU9OIiwiZXhwb3J0cyJdLCJzb3VyY2VzIjpbImRhdGEuanMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IFZFUlNJT04gPSBcIjEuNC4wXCI7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBTyxNQUFNQSxPQUFPLEdBQUcsT0FBTztBQUFDQyxPQUFBLENBQUFELE9BQUEsR0FBQUEsT0FBQSJ9

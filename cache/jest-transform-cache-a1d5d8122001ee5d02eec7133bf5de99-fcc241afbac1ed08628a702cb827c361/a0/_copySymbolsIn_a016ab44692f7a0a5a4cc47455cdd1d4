@@ -1,0 +1,19 @@
+649b706009d3db20f5b60e06803b9649
+"use strict";
+
+var copyObject = require('./_copyObject'),
+  getSymbolsIn = require('./_getSymbolsIn');
+
+/**
+ * Copies own and inherited symbols of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy symbols from.
+ * @param {Object} [object={}] The object to copy symbols to.
+ * @returns {Object} Returns `object`.
+ */
+function copySymbolsIn(source, object) {
+  return copyObject(source, getSymbolsIn(source), object);
+}
+module.exports = copySymbolsIn;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3B5T2JqZWN0IiwicmVxdWlyZSIsImdldFN5bWJvbHNJbiIsImNvcHlTeW1ib2xzSW4iLCJzb3VyY2UiLCJvYmplY3QiLCJtb2R1bGUiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsiX2NvcHlTeW1ib2xzSW4uanMiXSwic291cmNlc0NvbnRlbnQiOlsidmFyIGNvcHlPYmplY3QgPSByZXF1aXJlKCcuL19jb3B5T2JqZWN0JyksXG4gICAgZ2V0U3ltYm9sc0luID0gcmVxdWlyZSgnLi9fZ2V0U3ltYm9sc0luJyk7XG5cbi8qKlxuICogQ29waWVzIG93biBhbmQgaW5oZXJpdGVkIHN5bWJvbHMgb2YgYHNvdXJjZWAgdG8gYG9iamVjdGAuXG4gKlxuICogQHByaXZhdGVcbiAqIEBwYXJhbSB7T2JqZWN0fSBzb3VyY2UgVGhlIG9iamVjdCB0byBjb3B5IHN5bWJvbHMgZnJvbS5cbiAqIEBwYXJhbSB7T2JqZWN0fSBbb2JqZWN0PXt9XSBUaGUgb2JqZWN0IHRvIGNvcHkgc3ltYm9scyB0by5cbiAqIEByZXR1cm5zIHtPYmplY3R9IFJldHVybnMgYG9iamVjdGAuXG4gKi9cbmZ1bmN0aW9uIGNvcHlTeW1ib2xzSW4oc291cmNlLCBvYmplY3QpIHtcbiAgcmV0dXJuIGNvcHlPYmplY3Qoc291cmNlLCBnZXRTeW1ib2xzSW4oc291cmNlKSwgb2JqZWN0KTtcbn1cblxubW9kdWxlLmV4cG9ydHMgPSBjb3B5U3ltYm9sc0luO1xuIl0sIm1hcHBpbmdzIjoiOztBQUFBLElBQUlBLFVBQVUsR0FBR0MsT0FBTyxDQUFDLGVBQWUsQ0FBQztFQUNyQ0MsWUFBWSxHQUFHRCxPQUFPLENBQUMsaUJBQWlCLENBQUM7O0FBRTdDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxTQUFTRSxhQUFhQSxDQUFDQyxNQUFNLEVBQUVDLE1BQU0sRUFBRTtFQUNyQyxPQUFPTCxVQUFVLENBQUNJLE1BQU0sRUFBRUYsWUFBWSxDQUFDRSxNQUFNLENBQUMsRUFBRUMsTUFBTSxDQUFDO0FBQ3pEO0FBRUFDLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHSixhQUFhIn0=

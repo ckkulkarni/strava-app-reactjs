@@ -1,0 +1,30 @@
+76c247462f845df1c7ff0722e86fea6c
+"use strict";
+
+var baseIsMap = require('./_baseIsMap'),
+  baseUnary = require('./_baseUnary'),
+  nodeUtil = require('./_nodeUtil');
+
+/* Node.js helper references. */
+var nodeIsMap = nodeUtil && nodeUtil.isMap;
+
+/**
+ * Checks if `value` is classified as a `Map` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ * @example
+ *
+ * _.isMap(new Map);
+ * // => true
+ *
+ * _.isMap(new WeakMap);
+ * // => false
+ */
+var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
+module.exports = isMap;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJiYXNlSXNNYXAiLCJyZXF1aXJlIiwiYmFzZVVuYXJ5Iiwibm9kZVV0aWwiLCJub2RlSXNNYXAiLCJpc01hcCIsIm1vZHVsZSIsImV4cG9ydHMiXSwic291cmNlcyI6WyJpc01hcC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJ2YXIgYmFzZUlzTWFwID0gcmVxdWlyZSgnLi9fYmFzZUlzTWFwJyksXG4gICAgYmFzZVVuYXJ5ID0gcmVxdWlyZSgnLi9fYmFzZVVuYXJ5JyksXG4gICAgbm9kZVV0aWwgPSByZXF1aXJlKCcuL19ub2RlVXRpbCcpO1xuXG4vKiBOb2RlLmpzIGhlbHBlciByZWZlcmVuY2VzLiAqL1xudmFyIG5vZGVJc01hcCA9IG5vZGVVdGlsICYmIG5vZGVVdGlsLmlzTWFwO1xuXG4vKipcbiAqIENoZWNrcyBpZiBgdmFsdWVgIGlzIGNsYXNzaWZpZWQgYXMgYSBgTWFwYCBvYmplY3QuXG4gKlxuICogQHN0YXRpY1xuICogQG1lbWJlck9mIF9cbiAqIEBzaW5jZSA0LjMuMFxuICogQGNhdGVnb3J5IExhbmdcbiAqIEBwYXJhbSB7Kn0gdmFsdWUgVGhlIHZhbHVlIHRvIGNoZWNrLlxuICogQHJldHVybnMge2Jvb2xlYW59IFJldHVybnMgYHRydWVgIGlmIGB2YWx1ZWAgaXMgYSBtYXAsIGVsc2UgYGZhbHNlYC5cbiAqIEBleGFtcGxlXG4gKlxuICogXy5pc01hcChuZXcgTWFwKTtcbiAqIC8vID0+IHRydWVcbiAqXG4gKiBfLmlzTWFwKG5ldyBXZWFrTWFwKTtcbiAqIC8vID0+IGZhbHNlXG4gKi9cbnZhciBpc01hcCA9IG5vZGVJc01hcCA/IGJhc2VVbmFyeShub2RlSXNNYXApIDogYmFzZUlzTWFwO1xuXG5tb2R1bGUuZXhwb3J0cyA9IGlzTWFwO1xuIl0sIm1hcHBpbmdzIjoiOztBQUFBLElBQUlBLFNBQVMsR0FBR0MsT0FBTyxDQUFDLGNBQWMsQ0FBQztFQUNuQ0MsU0FBUyxHQUFHRCxPQUFPLENBQUMsY0FBYyxDQUFDO0VBQ25DRSxRQUFRLEdBQUdGLE9BQU8sQ0FBQyxhQUFhLENBQUM7O0FBRXJDO0FBQ0EsSUFBSUcsU0FBUyxHQUFHRCxRQUFRLElBQUlBLFFBQVEsQ0FBQ0UsS0FBSzs7QUFFMUM7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLElBQUlBLEtBQUssR0FBR0QsU0FBUyxHQUFHRixTQUFTLENBQUNFLFNBQVMsQ0FBQyxHQUFHSixTQUFTO0FBRXhETSxNQUFNLENBQUNDLE9BQU8sR0FBR0YsS0FBSyJ9

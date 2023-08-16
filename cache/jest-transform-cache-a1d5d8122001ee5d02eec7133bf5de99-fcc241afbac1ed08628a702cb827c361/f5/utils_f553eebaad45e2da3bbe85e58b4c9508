@@ -1,0 +1,40 @@
+920d237b66b68d422fb56c0a81333fa0
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hasValue = hasValue;
+exports.isAdornedStart = isAdornedStart;
+exports.isFilled = isFilled;
+// Supports determination of isControlled().
+// Controlled input accepts its current value as a prop.
+//
+// @see https://facebook.github.io/react/docs/forms.html#controlled-components
+// @param value
+// @returns {boolean} true if string (including '') or number (including zero)
+function hasValue(value) {
+  return value != null && !(Array.isArray(value) && value.length === 0);
+}
+
+// Determine if field is empty or filled.
+// Response determines if label is presented above field or as placeholder.
+//
+// @param obj
+// @param SSR
+// @returns {boolean} False when not present or empty string.
+//                    True when any number or string with length.
+function isFilled(obj, SSR = false) {
+  return obj && (hasValue(obj.value) && obj.value !== '' || SSR && hasValue(obj.defaultValue) && obj.defaultValue !== '');
+}
+
+// Determine if an Input is adorned on start.
+// It's corresponding to the left with LTR.
+//
+// @param obj
+// @returns {boolean} False when no adornments.
+//                    True when adorned at the start.
+function isAdornedStart(obj) {
+  return obj.startAdornment;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJPYmplY3QiLCJkZWZpbmVQcm9wZXJ0eSIsImV4cG9ydHMiLCJ2YWx1ZSIsImhhc1ZhbHVlIiwiaXNBZG9ybmVkU3RhcnQiLCJpc0ZpbGxlZCIsIkFycmF5IiwiaXNBcnJheSIsImxlbmd0aCIsIm9iaiIsIlNTUiIsImRlZmF1bHRWYWx1ZSIsInN0YXJ0QWRvcm5tZW50Il0sInNvdXJjZXMiOlsidXRpbHMuanMiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5cbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwge1xuICB2YWx1ZTogdHJ1ZVxufSk7XG5leHBvcnRzLmhhc1ZhbHVlID0gaGFzVmFsdWU7XG5leHBvcnRzLmlzQWRvcm5lZFN0YXJ0ID0gaXNBZG9ybmVkU3RhcnQ7XG5leHBvcnRzLmlzRmlsbGVkID0gaXNGaWxsZWQ7XG4vLyBTdXBwb3J0cyBkZXRlcm1pbmF0aW9uIG9mIGlzQ29udHJvbGxlZCgpLlxuLy8gQ29udHJvbGxlZCBpbnB1dCBhY2NlcHRzIGl0cyBjdXJyZW50IHZhbHVlIGFzIGEgcHJvcC5cbi8vXG4vLyBAc2VlIGh0dHBzOi8vZmFjZWJvb2suZ2l0aHViLmlvL3JlYWN0L2RvY3MvZm9ybXMuaHRtbCNjb250cm9sbGVkLWNvbXBvbmVudHNcbi8vIEBwYXJhbSB2YWx1ZVxuLy8gQHJldHVybnMge2Jvb2xlYW59IHRydWUgaWYgc3RyaW5nIChpbmNsdWRpbmcgJycpIG9yIG51bWJlciAoaW5jbHVkaW5nIHplcm8pXG5mdW5jdGlvbiBoYXNWYWx1ZSh2YWx1ZSkge1xuICByZXR1cm4gdmFsdWUgIT0gbnVsbCAmJiAhKEFycmF5LmlzQXJyYXkodmFsdWUpICYmIHZhbHVlLmxlbmd0aCA9PT0gMCk7XG59XG5cbi8vIERldGVybWluZSBpZiBmaWVsZCBpcyBlbXB0eSBvciBmaWxsZWQuXG4vLyBSZXNwb25zZSBkZXRlcm1pbmVzIGlmIGxhYmVsIGlzIHByZXNlbnRlZCBhYm92ZSBmaWVsZCBvciBhcyBwbGFjZWhvbGRlci5cbi8vXG4vLyBAcGFyYW0gb2JqXG4vLyBAcGFyYW0gU1NSXG4vLyBAcmV0dXJucyB7Ym9vbGVhbn0gRmFsc2Ugd2hlbiBub3QgcHJlc2VudCBvciBlbXB0eSBzdHJpbmcuXG4vLyAgICAgICAgICAgICAgICAgICAgVHJ1ZSB3aGVuIGFueSBudW1iZXIgb3Igc3RyaW5nIHdpdGggbGVuZ3RoLlxuZnVuY3Rpb24gaXNGaWxsZWQob2JqLCBTU1IgPSBmYWxzZSkge1xuICByZXR1cm4gb2JqICYmIChoYXNWYWx1ZShvYmoudmFsdWUpICYmIG9iai52YWx1ZSAhPT0gJycgfHwgU1NSICYmIGhhc1ZhbHVlKG9iai5kZWZhdWx0VmFsdWUpICYmIG9iai5kZWZhdWx0VmFsdWUgIT09ICcnKTtcbn1cblxuLy8gRGV0ZXJtaW5lIGlmIGFuIElucHV0IGlzIGFkb3JuZWQgb24gc3RhcnQuXG4vLyBJdCdzIGNvcnJlc3BvbmRpbmcgdG8gdGhlIGxlZnQgd2l0aCBMVFIuXG4vL1xuLy8gQHBhcmFtIG9ialxuLy8gQHJldHVybnMge2Jvb2xlYW59IEZhbHNlIHdoZW4gbm8gYWRvcm5tZW50cy5cbi8vICAgICAgICAgICAgICAgICAgICBUcnVlIHdoZW4gYWRvcm5lZCBhdCB0aGUgc3RhcnQuXG5mdW5jdGlvbiBpc0Fkb3JuZWRTdGFydChvYmopIHtcbiAgcmV0dXJuIG9iai5zdGFydEFkb3JubWVudDtcbn0iXSwibWFwcGluZ3MiOiJBQUFBLFlBQVk7O0FBRVpBLE1BQU0sQ0FBQ0MsY0FBYyxDQUFDQyxPQUFPLEVBQUUsWUFBWSxFQUFFO0VBQzNDQyxLQUFLLEVBQUU7QUFDVCxDQUFDLENBQUM7QUFDRkQsT0FBTyxDQUFDRSxRQUFRLEdBQUdBLFFBQVE7QUFDM0JGLE9BQU8sQ0FBQ0csY0FBYyxHQUFHQSxjQUFjO0FBQ3ZDSCxPQUFPLENBQUNJLFFBQVEsR0FBR0EsUUFBUTtBQUMzQjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxTQUFTRixRQUFRQSxDQUFDRCxLQUFLLEVBQUU7RUFDdkIsT0FBT0EsS0FBSyxJQUFJLElBQUksSUFBSSxFQUFFSSxLQUFLLENBQUNDLE9BQU8sQ0FBQ0wsS0FBSyxDQUFDLElBQUlBLEtBQUssQ0FBQ00sTUFBTSxLQUFLLENBQUMsQ0FBQztBQUN2RTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQVNILFFBQVFBLENBQUNJLEdBQUcsRUFBRUMsR0FBRyxHQUFHLEtBQUssRUFBRTtFQUNsQyxPQUFPRCxHQUFHLEtBQUtOLFFBQVEsQ0FBQ00sR0FBRyxDQUFDUCxLQUFLLENBQUMsSUFBSU8sR0FBRyxDQUFDUCxLQUFLLEtBQUssRUFBRSxJQUFJUSxHQUFHLElBQUlQLFFBQVEsQ0FBQ00sR0FBRyxDQUFDRSxZQUFZLENBQUMsSUFBSUYsR0FBRyxDQUFDRSxZQUFZLEtBQUssRUFBRSxDQUFDO0FBQ3pIOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQVNQLGNBQWNBLENBQUNLLEdBQUcsRUFBRTtFQUMzQixPQUFPQSxHQUFHLENBQUNHLGNBQWM7QUFDM0IifQ==

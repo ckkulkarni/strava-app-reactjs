@@ -1,0 +1,28 @@
+e9b6ca662709a057de2a9fafbc29ba02
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = setRef;
+/**
+ * TODO v5: consider making it private
+ *
+ * passes {value} to {ref}
+ *
+ * WARNING: Be sure to only call this inside a callback that is passed as a ref.
+ * Otherwise, make sure to cleanup the previous {ref} if it changes. See
+ * https://github.com/mui/material-ui/issues/13539
+ *
+ * Useful if you want to expose the ref of an inner component to the public API
+ * while still using it inside the component.
+ * @param ref A ref callback or ref object. If anything falsy, this is a no-op.
+ */
+function setRef(ref, value) {
+  if (typeof ref === 'function') {
+    ref(value);
+  } else if (ref) {
+    ref.current = value;
+  }
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJPYmplY3QiLCJkZWZpbmVQcm9wZXJ0eSIsImV4cG9ydHMiLCJ2YWx1ZSIsImRlZmF1bHQiLCJzZXRSZWYiLCJyZWYiLCJjdXJyZW50Il0sInNvdXJjZXMiOlsic2V0UmVmLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xuXG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHtcbiAgdmFsdWU6IHRydWVcbn0pO1xuZXhwb3J0cy5kZWZhdWx0ID0gc2V0UmVmO1xuLyoqXG4gKiBUT0RPIHY1OiBjb25zaWRlciBtYWtpbmcgaXQgcHJpdmF0ZVxuICpcbiAqIHBhc3NlcyB7dmFsdWV9IHRvIHtyZWZ9XG4gKlxuICogV0FSTklORzogQmUgc3VyZSB0byBvbmx5IGNhbGwgdGhpcyBpbnNpZGUgYSBjYWxsYmFjayB0aGF0IGlzIHBhc3NlZCBhcyBhIHJlZi5cbiAqIE90aGVyd2lzZSwgbWFrZSBzdXJlIHRvIGNsZWFudXAgdGhlIHByZXZpb3VzIHtyZWZ9IGlmIGl0IGNoYW5nZXMuIFNlZVxuICogaHR0cHM6Ly9naXRodWIuY29tL211aS9tYXRlcmlhbC11aS9pc3N1ZXMvMTM1MzlcbiAqXG4gKiBVc2VmdWwgaWYgeW91IHdhbnQgdG8gZXhwb3NlIHRoZSByZWYgb2YgYW4gaW5uZXIgY29tcG9uZW50IHRvIHRoZSBwdWJsaWMgQVBJXG4gKiB3aGlsZSBzdGlsbCB1c2luZyBpdCBpbnNpZGUgdGhlIGNvbXBvbmVudC5cbiAqIEBwYXJhbSByZWYgQSByZWYgY2FsbGJhY2sgb3IgcmVmIG9iamVjdC4gSWYgYW55dGhpbmcgZmFsc3ksIHRoaXMgaXMgYSBuby1vcC5cbiAqL1xuZnVuY3Rpb24gc2V0UmVmKHJlZiwgdmFsdWUpIHtcbiAgaWYgKHR5cGVvZiByZWYgPT09ICdmdW5jdGlvbicpIHtcbiAgICByZWYodmFsdWUpO1xuICB9IGVsc2UgaWYgKHJlZikge1xuICAgIHJlZi5jdXJyZW50ID0gdmFsdWU7XG4gIH1cbn0iXSwibWFwcGluZ3MiOiJBQUFBLFlBQVk7O0FBRVpBLE1BQU0sQ0FBQ0MsY0FBYyxDQUFDQyxPQUFPLEVBQUUsWUFBWSxFQUFFO0VBQzNDQyxLQUFLLEVBQUU7QUFDVCxDQUFDLENBQUM7QUFDRkQsT0FBTyxDQUFDRSxPQUFPLEdBQUdDLE1BQU07QUFDeEI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxTQUFTQSxNQUFNQSxDQUFDQyxHQUFHLEVBQUVILEtBQUssRUFBRTtFQUMxQixJQUFJLE9BQU9HLEdBQUcsS0FBSyxVQUFVLEVBQUU7SUFDN0JBLEdBQUcsQ0FBQ0gsS0FBSyxDQUFDO0VBQ1osQ0FBQyxNQUFNLElBQUlHLEdBQUcsRUFBRTtJQUNkQSxHQUFHLENBQUNDLE9BQU8sR0FBR0osS0FBSztFQUNyQjtBQUNGIn0=

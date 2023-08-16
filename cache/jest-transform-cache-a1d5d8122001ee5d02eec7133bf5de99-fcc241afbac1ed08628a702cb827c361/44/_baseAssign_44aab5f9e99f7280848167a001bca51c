@@ -1,0 +1,20 @@
+13779b427de5299959c9e9cc4361b5f3
+"use strict";
+
+var copyObject = require('./_copyObject'),
+  keys = require('./keys');
+
+/**
+ * The base implementation of `_.assign` without support for multiple sources
+ * or `customizer` functions.
+ *
+ * @private
+ * @param {Object} object The destination object.
+ * @param {Object} source The source object.
+ * @returns {Object} Returns `object`.
+ */
+function baseAssign(object, source) {
+  return object && copyObject(source, keys(source), object);
+}
+module.exports = baseAssign;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3B5T2JqZWN0IiwicmVxdWlyZSIsImtleXMiLCJiYXNlQXNzaWduIiwib2JqZWN0Iiwic291cmNlIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJzb3VyY2VzIjpbIl9iYXNlQXNzaWduLmpzIl0sInNvdXJjZXNDb250ZW50IjpbInZhciBjb3B5T2JqZWN0ID0gcmVxdWlyZSgnLi9fY29weU9iamVjdCcpLFxuICAgIGtleXMgPSByZXF1aXJlKCcuL2tleXMnKTtcblxuLyoqXG4gKiBUaGUgYmFzZSBpbXBsZW1lbnRhdGlvbiBvZiBgXy5hc3NpZ25gIHdpdGhvdXQgc3VwcG9ydCBmb3IgbXVsdGlwbGUgc291cmNlc1xuICogb3IgYGN1c3RvbWl6ZXJgIGZ1bmN0aW9ucy5cbiAqXG4gKiBAcHJpdmF0ZVxuICogQHBhcmFtIHtPYmplY3R9IG9iamVjdCBUaGUgZGVzdGluYXRpb24gb2JqZWN0LlxuICogQHBhcmFtIHtPYmplY3R9IHNvdXJjZSBUaGUgc291cmNlIG9iamVjdC5cbiAqIEByZXR1cm5zIHtPYmplY3R9IFJldHVybnMgYG9iamVjdGAuXG4gKi9cbmZ1bmN0aW9uIGJhc2VBc3NpZ24ob2JqZWN0LCBzb3VyY2UpIHtcbiAgcmV0dXJuIG9iamVjdCAmJiBjb3B5T2JqZWN0KHNvdXJjZSwga2V5cyhzb3VyY2UpLCBvYmplY3QpO1xufVxuXG5tb2R1bGUuZXhwb3J0cyA9IGJhc2VBc3NpZ247XG4iXSwibWFwcGluZ3MiOiI7O0FBQUEsSUFBSUEsVUFBVSxHQUFHQyxPQUFPLENBQUMsZUFBZSxDQUFDO0VBQ3JDQyxJQUFJLEdBQUdELE9BQU8sQ0FBQyxRQUFRLENBQUM7O0FBRTVCO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQVNFLFVBQVVBLENBQUNDLE1BQU0sRUFBRUMsTUFBTSxFQUFFO0VBQ2xDLE9BQU9ELE1BQU0sSUFBSUosVUFBVSxDQUFDSyxNQUFNLEVBQUVILElBQUksQ0FBQ0csTUFBTSxDQUFDLEVBQUVELE1BQU0sQ0FBQztBQUMzRDtBQUVBRSxNQUFNLENBQUNDLE9BQU8sR0FBR0osVUFBVSJ9
