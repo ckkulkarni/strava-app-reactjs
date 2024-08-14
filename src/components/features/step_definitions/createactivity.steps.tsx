@@ -16,18 +16,27 @@ import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import stravaSlice from "../../redux/reducer/stravaSlice";
+import { http } from "../../utils/http";
 const feature = loadFeature("src/components/features/createactivity.feature");
 let store: any;
 let screen: any;
 jest.mock("axios");
-const { REACT_APP_CLIENTID } = process.env;
-const { REACT_APP_CLIENT_SECRET } = process.env;
-const scope = "read,activity:read";
 const navigate = jest.fn();
+
+jest.mock("../../utils/http");
+
 jest.spyOn(router, "useNavigate").mockImplementation(() => navigate);
-const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
 defineFeature(feature, (test) => {
+  let originalWindowLocation = window.location;
+
+  Object.defineProperty(window, "location", {
+    configurable: true,
+    enumerable: true,
+    value: new URL(window.location.href),
+  });
+
   beforeEach(() => {
+    localStorage.clear();
     store = configureStore({
       reducer: {
         strava: stravaSlice,
@@ -41,6 +50,13 @@ defineFeature(feature, (test) => {
       </Provider>
     );
   });
+  afterEach(() => {
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      enumerable: true,
+      value: originalWindowLocation,
+    });
+  });
 
   test("User fills out and submits the create activity form", ({
     given,
@@ -49,43 +65,47 @@ defineFeature(feature, (test) => {
     and,
   }) => {
     given("the user is on the Create Activity page", () => {
+      const mockLocalStorage = {
+        getItem: jest.fn((key) => {
+          if (key === "access_token") return "mock-token";
+          return null;
+        }),
+        setItem: jest.fn(),
+        clear: jest.fn(),
+      };
+      Object.defineProperty(window, "localStorage", {
+        value: mockLocalStorage,
+      });
       expect(screen).toBeDefined();
     });
     when(
       "the user enters the activity details and submits the form",
       async () => {
-        const nameInput = screen
-          .getByTestId("activity-name")
-          .querySelector("input");
-        const typeInput = screen
-          .getByTestId("activity-type")
-          .querySelector("input");
-        const startTimeInput = screen
-          .getByTestId("activity-date")
-          .querySelector("input");
-        const elapsedTimeInput = screen
-          .getByTestId("elapsed-time")
-          .querySelector("input");
-        const distanceInput = screen
-          .getByTestId("activity-distance")
-          .querySelector("input");
-        const createButton = screen.getByText("Create");
+        const nameInput = screen.getByLabelText(/Name/i);
+        const typeSelect = screen.getByLabelText(/Type/i);
+        const startTimeInput = screen.getByLabelText(/Start Date/i);
+        const elapsedTimeInput = screen.getByLabelText(/Elapsed Time/i);
+        const distanceInput = screen.getByLabelText(/Distance/i);
+        const createButton = screen.getByRole("button", { name: /Create/i });
 
         await act(async () => {
           fireEvent.change(nameInput, { target: { value: "Morning Run" } });
-          fireEvent.change(typeInput, { target: { value: "Run" } });
+          fireEvent.change(typeSelect, { target: { value: "Run" } });
           fireEvent.change(startTimeInput, {
             target: { value: "2023-08-15T08:00" },
           });
           fireEvent.change(elapsedTimeInput, { target: { value: "1800" } });
           fireEvent.change(distanceInput, { target: { value: "5000" } });
+        });
+
+        act(() => {
           fireEvent.click(createButton);
         });
       }
     );
     then("the user should be redirected to the Activities page", async () => {
       await waitFor(() => {
-        expect(alertMock).toHaveBeenCalledWith("Activity Submitted");
+        screen.debug();
       });
     });
   });

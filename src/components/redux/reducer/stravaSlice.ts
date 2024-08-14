@@ -1,26 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    accessToken: null as string | null,
-    userID: ''
+  accessToken: null as string | null,
+  userID: "",
 };
 
 const stravaSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setAccessToken: (state, action) => {
       state.accessToken = action.payload;
-      },
-      setUserID: (state, action) => {
-          state.userID = action.payload
-      },
+    },
+    setUserID: (state, action) => {
+      state.userID = action.payload;
+    },
     clearAccessToken: (state) => {
       state.accessToken = null;
+      state.userID = "";
     },
   },
 });
 
-export const { setAccessToken, clearAccessToken, setUserID } = stravaSlice.actions;
+export const { setAccessToken, clearAccessToken, setUserID } =
+  stravaSlice.actions;
 
 export default stravaSlice.reducer;

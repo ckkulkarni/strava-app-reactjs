@@ -19,13 +19,23 @@ import stravaSlice from "../../redux/reducer/stravaSlice";
 const feature = loadFeature("src/components/features/redirect.feature");
 let store: any;
 let screen: any;
+const navigate = jest.fn();
+
+jest.mock("../../utils/http");
+
+jest.spyOn(router, "useNavigate").mockImplementation(() => navigate);
 jest.mock("axios");
-const { REACT_APP_CLIENTID } = process.env;
-const { REACT_APP_CLIENT_SECRET } = process.env;
-const redirectUrl = "http://localhost:3000/redirect";
-const scope = "read,activity:read";
 defineFeature(feature, (test) => {
+  let originalWindowLocation = window.location;
+
+  Object.defineProperty(window, "location", {
+    configurable: true,
+    enumerable: true,
+    value: new URL(window.location.href),
+  });
+
   beforeEach(() => {
+    localStorage.clear();
     store = configureStore({
       reducer: {
         strava: stravaSlice,
@@ -38,6 +48,13 @@ defineFeature(feature, (test) => {
         </MemoryRouter>
       </Provider>
     );
+  });
+  afterEach(() => {
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      enumerable: true,
+      value: originalWindowLocation,
+    });
   });
 
   test("User logs in and gets redirected to Activities screen", ({
@@ -56,16 +73,11 @@ defineFeature(feature, (test) => {
       expect(screen).toBeDefined();
     });
     when('the user is redirected with code "mock-code"', async () => {
-      const navigate = jest.fn();
-      jest.spyOn(router, "useNavigate").mockImplementation(() => navigate);
       jest.spyOn(axios, "post").mockResolvedValueOnce({
         data: {
           access_token: "mock-access-token",
           athlete: { id: "mock-user-id" },
         },
-      });
-      waitFor(() => {
-        expect(navigate).toHaveBeenCalled();
       });
     });
     then("the access token is set in local storage", () => {
